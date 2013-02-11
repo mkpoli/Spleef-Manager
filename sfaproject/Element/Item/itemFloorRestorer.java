@@ -49,7 +49,7 @@ public class itemFloorRestorer extends Item {
 	    	if( y1 ==y2 ){
 	    		//TODO:用NBT保存数据，在聊天窗口中询问生成的区域名称
 	    		//最终保存用Command实现？
-	    		//SetSpleefBlock(world, x1, x2, z1, z2, y1);
+	    		SetSpleefBlock(world, x1, x2, z1, z2, y1,538);
 	    		//以上或许可以用SetArea/RestoreArea命令中的方法替代
 	    		hasUsed=false; //复位
 	    		x1=x2=y1=y2=z1=z2=0;
