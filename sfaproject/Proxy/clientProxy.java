@@ -8,5 +8,9 @@ public class clientProxy extends Proxy {
 		// TODO Auto-generated constructor stub
 		MinecraftForgeClient.preloadTexture(ITEMS_PNG);
 	}
-
+	@Override
+	public void Init()
+	{
+		
+	}
 }

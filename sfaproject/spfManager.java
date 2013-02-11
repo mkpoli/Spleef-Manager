@@ -3,10 +3,12 @@ package spleefmanager;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.src.ModLoader;
 import net.minecraftforge.common.MinecraftForge;
 import spleefmanager.Element.Block.blockSpleef;
 import spleefmanager.Element.Item.itemFloorRestorer;
 import spleefmanager.Misc.CreativeTab;
+import spleefmanager.commands.CommandSetArea;
 import spleefmanager.commands.Commands;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.Init;
@@ -42,7 +44,7 @@ public  class spfManager {
 	@Init
 	public static void Init(FMLInitializationEvent Init){
 		Commands cmd = new Commands();
-
+		Proxy.Init();
     	//Stacks Instance
     	ItemStack redstoneStack = new ItemStack(Item.redstone);
     	ItemStack diamondStack = new ItemStack(Item.diamond);
@@ -63,7 +65,7 @@ public  class spfManager {
 	}
 	@PostInit
 	public static void PostInit(FMLPostInitializationEvent Init){
-		
+		ModLoader.addCommand(new CommandSetArea());
 	}
 	public spfManager() {
 		// TODO Auto-generated constructor stub

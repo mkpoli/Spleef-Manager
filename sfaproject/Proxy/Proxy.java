@@ -6,12 +6,14 @@ import spleefmanager.commands.CommandSetArea;
 import spleefmanager.commands.Commands;
 
 public class Proxy {
-	public static String ITEMS_PNG = "/sfaproject/Texture/items.png";
+	public static String ITEMS_PNG = "/mod/Texture/items.png";
 	public Proxy() {
 	    
 		// TODO Auto-generated constructor stub
 	}
 	//加载贴图给汝放到ClientProxy里了
-
+	public void Init(){
+		
+	}
 
 }
