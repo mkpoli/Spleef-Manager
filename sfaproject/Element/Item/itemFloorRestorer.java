@@ -1,6 +1,7 @@
 package spleefmanager.Element.Item;
 
 import spleefmanager.spfManager;
+import spleefmanager.Misc.Generic;
 import spleefmanager.Proxy.Proxy;
 import net.minecraft.block.Block;
 import net.minecraft.entity.player.EntityPlayer;
@@ -58,6 +59,8 @@ public class itemFloorRestorer extends Item {
     	if( !hasUsed || y1!=y2){
     		return false;
     	}
+    	Generic.sendPublicNotice(world, "Tring Chatting");
+    	Generic.sendPrivateChat(par2, "Tring Private Chatting");
 		//	SetSpleefBlock(world, x1, x2, z1, z2, y);
 		//TODO:用NBT保存数据，在聊天窗口中询问生成的区域名称
 		//最终保存用Command实现？
@@ -77,6 +80,7 @@ public class itemFloorRestorer extends Item {
 		for(int i=x1;i<x2;i++){
 			for(int j=z1;j<z2;j++)
 				world.setBlock(i, y, j, blockID);
+
 		}
 		return true;
 	}
