@@ -47,23 +47,23 @@ public class itemFloorRestorer extends Item {
 			x2=x;
 			z21=z;
 			y2=y;
-			par2.sendChatToPlayer("Ñ¡ÔñÁËµÚÒ»¸öÑ¡Ôñµã¡£");
+			par2.sendChatToPlayer("é€‰æ‹©äº†ç¬¬ä¸€ä¸ªé€‰æ‹©ç‚¹ã€‚");
 			hasUsed=false;
  		}
 		else {
 			x1=x;
 			z1=z;
 			y1=y;
-			par2.sendChatToPlayer("Ñ¡ÔñÁËµÚ¶ş¸öÑ¡Ôñµã.");
+			par2.sendChatToPlayer("é€‰æ‹©äº†ç¬¬äºŒä¸ªé€‰æ‹©ç‚¹.");
 		} 
     	if( !hasUsed || y1!=y2){
     		return false;
     	}
     	Generic.sendPublicNotice(world, "Tring Chatting");
-    	Generic.sendPrivateChat(par2, "Tring Private Chatting");
+    	Generic.sendPrivateChat(par2, "Tring Private Chatting");	
 		//	SetSpleefBlock(world, x1, x2, z1, z2, y);
-		//TODO:ÓÃNBT±£´æÊı¾İ£¬ÔÚÁÄÌì´°¿ÚÖĞÑ¯ÎÊÉú³ÉµÄÇøÓòÃû³Æ
-		//×îÖÕ±£´æÓÃCommandÊµÏÖ£¿
+		//TODO:ç”¨NBTä¿å­˜æ•°æ®ï¼Œåœ¨èŠå¤©çª—å£ä¸­è¯¢é—®ç”Ÿæˆçš„åŒºåŸŸåç§°
+		//æœ€ç»ˆä¿å­˜ç”¨Commandå®ç°ï¼Ÿ
         return true;
     }
 
