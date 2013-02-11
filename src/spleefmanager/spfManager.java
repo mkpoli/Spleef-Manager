@@ -1,3 +1,23 @@
+/**	
+  * The mod's main load file
+  * 
+  * Instanced itself as spfm
+  * 
+  * Instanced BlockSpleef as blocksb
+  * Instanced ItemFloorRestorer as itemfr
+  * Instanced CreativeTab as CT
+  * 
+  * Instanced ItemStacks Instances
+  * Registed Blocks And Language Registed Strings
+ * 
+ * Added Recipes
+ * 
+ * Registed Commands
+ * 
+ * @author mkpoli & WeAthFolD
+ * 
+ */
+
 package spleefmanager;
 
 import net.minecraft.block.Block;
@@ -30,30 +50,28 @@ import cpw.mods.fml.common.network.NetworkMod;
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.common.registry.LanguageRegistry;
 
-
-@Mod(modid="spfm",name="SpleefManager",version="0.0.0.1")
-@NetworkMod(clientSideRequired=true,serverSideRequired=false)
-
+@Mod(modid="spfm",name="SpleefManager",version="0.0.0.1") //Mod Info
+@NetworkMod(clientSideRequired=true,serverSideRequired=false) //Mod Settings of Network
 
 public  class SpfManager {
-	public final static BlockSpleef blocksb = new BlockSpleef(538,66);
+	public final static Block blocksb = new BlockSpleef(538,66); 
 	public final static Item itemfr = new ItemFloorRestorer(12003);
 	public static CreativeTab CT = new CreativeTab("SpleefFloorAssist");
 
-	
 	@Instance("spfm")
 	public static SpfManager spfm;
+	
 	@SidedProxy(clientSide="spleefmanager.Proxy.clientProxy",serverSide="spleefmanager.Proxy.Proxy")
-	public static spleefmanager.proxy.Proxy Proxy;
+	public static spleefmanager.proxy.Proxy Proxy; //defined Proxy class
+	
 	@PreInit
-	public static void PreInit(FMLPreInitializationEvent Init)
-	{
-		
+	public static void PreInit(FMLPreInitializationEvent Init) {
 	}
+	
 	@Init
-	public static void Init(FMLInitializationEvent Init){
-		Commands cmd = new Commands();
-		Proxy.Init();
+	public static void Init(FMLInitializationEvent Init) {
+		Commands cmd = new Commands(); //Instanced Commands as cmd
+		Proxy.Init(); //Initial of Proxy class
     	//Stacks Instance
 		ItemStack bonemealStack  = new ItemStack(Item.dyePowder,15);
     	ItemStack diamondStack = new ItemStack(Item.diamond);
@@ -72,17 +90,18 @@ public  class SpfManager {
     	//Other
     	MinecraftForge.setBlockHarvestLevel(blocksb, "shovel", 3);
 	}
+	
 	@PostInit
-	public static void PostInit(FMLPostInitializationEvent Init){
-//		ModLoader.addCommand(new CommandSetArea());
+	public static void PostInit(FMLPostInitializationEvent Init) {
 	}
+	
 	public SpfManager() {
-		// TODO Auto-generated constructor stub
 	}
+	
 	   @ServerStarting
-	   public void serverStarting(FMLServerStartingEvent event) {
-	      CommandHandler commandManager = (CommandHandler)event.getServer().getCommandManager();
-	      commandManager.registerCommand(new CommandHelp());
-	   }
+	public void serverStarting(FMLServerStartingEvent event) {
+	    CommandHandler commandManager = (CommandHandler)event.getServer().getCommandManager();
+	    commandManager.registerCommand(new CommandHelp());
+	}
 
 }

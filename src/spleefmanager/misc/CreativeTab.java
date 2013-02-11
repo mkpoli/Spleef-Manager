@@ -19,5 +19,4 @@ public class CreativeTab extends CreativeTabs {
 	public ItemStack getIconItemStack() {
 	    return new ItemStack(new ItemFloorRestorer(12003));
 	}
-	//
 }

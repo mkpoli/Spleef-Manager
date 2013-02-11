@@ -14,7 +14,6 @@ public class Generic {
 	public static void sendPrivateChat(EntityPlayer player, String string) {
 		if (!player.worldObj.isRemote) {
 			player.sendChatToPlayer(string);
-			// �ƺ��� player.addChatMessage(""); Ҳ���ԣ���ʱû�������
 		}
 	}
 }
