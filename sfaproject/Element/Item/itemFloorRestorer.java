@@ -45,13 +45,13 @@ public class itemFloorRestorer extends Item {
 			x2=x;
 			z2=z;
 			y2=y;
-			par2.sendChatToPlayer("Second selection point chosen.");	
+			par2.sendChatToPlayer("Second selection point chosen. (" + x2 + "," + y2 + "," + z2 + ")");	
 	    	if( y1 ==y2 ){
-	    		//TODO:ÓÃNBT±£´æÊı¾İ£¬ÔÚÁÄÌì´°¿ÚÖĞÑ¯ÎÊÉú³ÉµÄÇøÓòÃû³Æ
-	    		//×îÖÕ±£´æÓÃCommandÊµÏÖ£¿
+	    		//TODO:ç”¨NBTä¿å­˜æ•°æ®ï¼Œåœ¨èŠå¤©çª—å£ä¸­è¯¢é—®ç”Ÿæˆçš„åŒºåŸŸåç§°
+	    		//æœ€ç»ˆä¿å­˜ç”¨Commandå®ç°ï¼Ÿ
 	    		//SetSpleefBlock(world, x1, x2, z1, z2, y1);
-	    		//ÒÔÉÏ»òĞí¿ÉÒÔÓÃSetArea/RestoreAreaÃüÁîÖĞµÄ·½·¨Ìæ´ú
-	    		hasUsed=false; //¸´Î»
+	    		//ä»¥ä¸Šæˆ–è®¸å¯ä»¥ç”¨SetArea/RestoreAreaå‘½ä»¤ä¸­çš„æ–¹æ³•æ›¿ä»£
+	    		hasUsed=false; //å¤ä½
 	    		x1=x2=y1=y2=z1=z2=0;
 	    		return true;
 	    	}else{
@@ -64,7 +64,7 @@ public class itemFloorRestorer extends Item {
 			x1=x;
 			z1=z;
 			y1=y;
-			par2.sendChatToPlayer("First selection point chosen.");
+			par2.sendChatToPlayer("First selection point chosen. (" + x1 + "," + y1 + "," + z1 + ")");
 			hasUsed=true;
 		} 
 
