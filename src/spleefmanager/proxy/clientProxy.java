@@ -1,4 +1,4 @@
-package spleefmanager.Proxy;
+package spleefmanager.proxy;
 
 import net.minecraftforge.client.MinecraftForgeClient;
 

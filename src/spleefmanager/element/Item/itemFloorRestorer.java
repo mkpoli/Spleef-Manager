@@ -1,7 +1,7 @@
 package spleefmanager.Element.Item;
 
 import spleefmanager.spfManager;
-import spleefmanager.Proxy.Proxy;
+import spleefmanager.proxy.Proxy;
 import net.minecraft.block.Block;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;

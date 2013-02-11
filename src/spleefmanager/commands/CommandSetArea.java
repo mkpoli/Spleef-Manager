@@ -3,6 +3,7 @@ package spleefmanager.commands;
 import net.minecraft.command.CommandBase;
 import net.minecraft.command.CommandKill;
 import net.minecraft.command.ICommandSender;
+import net.minecraft.entity.player.EntityPlayerMP;
 
 //Command setting the Spleef Area.
 //Takes 0 or 4 Arguments.
@@ -11,15 +12,16 @@ import net.minecraft.command.ICommandSender;
 //Stores information inside serverside files.
 //command name : setSpleefArea
 
-public class CommandSetArea extends CommandKill{
+public class CommandSetArea extends CommandBase{
 
 	public String getCommandName(){
 		return "spfset";
 	}
 	public void processCommand(ICommandSender var1, String[] var2) {
 		// TODO Auto-generated method stub
-		var1.sendChatToPlayer("Not finished yet xDDDDD");
-		
+		var1.sendChatToPlayer("Please choose the first block by right click");
+		EntityPlayerMP plr =  getCommandSenderAsPlayer(var1);
+		plr.
 	}
 	public int getRequiredPermissionLevel()
 	{

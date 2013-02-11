@@ -1,4 +1,4 @@
-package spleefmanager.Misc;
+package spleefmanager.misc;
 
 import javax.lang.model.element.Element;
 

@@ -1,4 +1,4 @@
-package spleefmanager.Proxy;
+package spleefmanager.proxy;
 
 import net.minecraft.src.ModLoader;
 import cpw.mods.fml.common.modloader.*;
@@ -6,12 +6,12 @@ import spleefmanager.commands.CommandSetArea;
 import spleefmanager.commands.Commands;
 
 public class Proxy {
-	public static String ITEMS_PNG = "/mod/Texture/items.png";
+	public static String ITEMS_PNG = "/spleefmanager/Texture/items.png";
 	public Proxy() {
 	    
 		// TODO Auto-generated constructor stub
 	}
-	//¼ÓÔØÌùÍ¼¸øÈê·Åµ½ClientProxyÀïÁË
+	//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í¼ï¿½ï¿½ï¿½ï¿½Åµï¿½ClientProxyï¿½ï¿½ï¿½ï¿½
 	public void Init(){
 		
 	}
