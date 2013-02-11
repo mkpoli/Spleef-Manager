@@ -11,16 +11,17 @@ public class CommandHelp extends CommandBase {
 
 	@Override
 	public String getCommandName() {
-		return "sfahelp";
+		return "spfhelp";
 	}
 
 	@Override
 	public void processCommand(ICommandSender var1, String[] var2) {
 			var1.sendChatToPlayer("Command list of Spleef Manager Mod \n" +
-												"/help   Show the help \n" +
-												"/delarea Delete the Selceted Area \n" +
-												"/restorearea Restore the Seleceted Area \n" +
-												"/setarea Selcet Area"
+												"\n\n" +
+												"/spfhelp   Show the help \n" +
+												"/spfdel Delete the Selceted Area \n" +
+												"/spfrestore Restore the Seleceted Area \n" +
+												"/spfset Selcet Area"
 					);
 	}
 

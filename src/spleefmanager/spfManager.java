@@ -27,13 +27,15 @@ import net.minecraft.block.material.MaterialLogic;
 import net.minecraft.command.CommandHandler;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.src.ModLoader;
 import net.minecraftforge.common.MinecraftForge;
 import spleefmanager.element.block.BlockSpleef;
 import spleefmanager.element.item.ItemFloorRestorer;
+import spleefmanager.commands.CommandDelArea;
 import spleefmanager.commands.CommandHelp;
+import spleefmanager.commands.CommandRestoreArea;
 import spleefmanager.commands.CommandSetArea;
-import spleefmanager.commands.Commands;
 import spleefmanager.misc.CreativeTab;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.Init;
@@ -57,11 +59,12 @@ public  class SpfManager {
 	public final static Block blocksb = new BlockSpleef(538,66); 
 	public final static Item itemfr = new ItemFloorRestorer(12003);
 	public static CreativeTab CT = new CreativeTab("SpleefFloorAssist");
-
+	public static NBTTagCompound nbt = new NBTTagCompound();
+	
 	@Instance("spfm")
 	public static SpfManager spfm;
 	
-	@SidedProxy(clientSide="spleefmanager.Proxy.clientProxy",serverSide="spleefmanager.Proxy.Proxy")
+	@SidedProxy(clientSide="spleefmanager.proxy.ClientProxy",serverSide="spleefmanager.proxy.Proxy")
 	public static spleefmanager.proxy.Proxy Proxy; //defined Proxy class
 	
 	@PreInit
@@ -70,7 +73,7 @@ public  class SpfManager {
 	
 	@Init
 	public static void Init(FMLInitializationEvent Init) {
-		Commands cmd = new Commands(); //Instanced Commands as cmd
+		//Commands cmd = new Commands(); //Instanced Commands as cmd
 		Proxy.Init(); //Initial of Proxy class
     	//Stacks Instance
 		ItemStack bonemealStack  = new ItemStack(Item.dyePowder,15);
@@ -79,6 +82,7 @@ public  class SpfManager {
     	ItemStack dirtStack = new ItemStack(Block.dirt);  		
         //Elements Registing
     	GameRegistry.registerBlock(blocksb,"blocksb");
+    	blocksb.setCreativeTab(CT);
     	LanguageRegistry.addName(blocksb, "Spleef Block");
     	LanguageRegistry.addName(itemfr, "Floor Restorer");
     	LanguageRegistry.instance().addStringLocalization("itemGroup.SpleefFloorAssist", "en_US", "Spleef Floor Assist");
@@ -98,10 +102,12 @@ public  class SpfManager {
 	public SpfManager() {
 	}
 	
-	   @ServerStarting
+	@ServerStarting
 	public void serverStarting(FMLServerStartingEvent event) {
 	    CommandHandler commandManager = (CommandHandler)event.getServer().getCommandManager();
 	    commandManager.registerCommand(new CommandHelp());
+	    commandManager.registerCommand(new CommandDelArea());
+	    commandManager.registerCommand(new CommandRestoreArea());
+	    commandManager.registerCommand(new CommandSetArea());
 	}
-
 }
