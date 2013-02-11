@@ -1,7 +1,7 @@
-package sfaproject.Element.Block;
+package spleefmanager.Element.Block;
 
-import sfaproject.SFAMOD;
-import sfaproject.Proxy.Proxy;
+import spleefmanager.spfManager;
+import spleefmanager.Proxy.Proxy;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 
@@ -13,7 +13,7 @@ public class blockSpleef extends Block{
 		setBlockName("Spleef_Block");
 		setHardness(0.1F);
 		setStepSound(soundSnowFootstep);
-		setCreativeTab(SFAMOD.CT);
+		setCreativeTab(spfManager.CT);
 	}
 
 }

@@ -1,7 +1,7 @@
-package sfaproject.Element.Item;
+package spleefmanager.Element.Item;
 
-import sfaproject.SFAMOD;
-import sfaproject.Proxy.Proxy;
+import spleefmanager.spfManager;
+import spleefmanager.Proxy.Proxy;
 import net.minecraft.block.Block;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
@@ -21,7 +21,7 @@ public class itemFloorRestorer extends Item {
 		
 		 // Constructor Configuration
 		maxStackSize = 64;
-        setCreativeTab(SFAMOD.CT);
+        setCreativeTab(spfManager.CT);
         setIconIndex(0);
         setItemName("itemfr");
 	}

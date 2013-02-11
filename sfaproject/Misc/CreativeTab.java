@@ -1,4 +1,4 @@
-package sfaproject.Misc;
+package spleefmanager.Misc;
 
 import javax.lang.model.element.Element;
 
@@ -6,8 +6,8 @@ import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 
-import sfaproject.SFAMOD;
-import sfaproject.Element.Item.itemFloorRestorer;
+import spleefmanager.spfManager;
+import spleefmanager.Element.Item.itemFloorRestorer;
 
 public class CreativeTab extends CreativeTabs {
 
@@ -18,7 +18,6 @@ public class CreativeTab extends CreativeTabs {
 	@Override
 	public ItemStack getIconItemStack() {
 	    return new ItemStack(new itemFloorRestorer(12003));
-	    //return new ItemStack(Crowbar);
 	}
 	//
 }

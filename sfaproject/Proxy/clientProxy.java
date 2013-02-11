@@ -1,11 +1,12 @@
-package sfaproject.Proxy;
+package spleefmanager.Proxy;
 
 import net.minecraftforge.client.MinecraftForgeClient;
 
 public class clientProxy extends Proxy {
-		@Override
-		public void registerRenderers()
-		{
-			MinecraftForgeClient.preloadTexture(ITEMS_PNG);
-		}
+
+	public clientProxy() {
+		// TODO Auto-generated constructor stub
+		MinecraftForgeClient.preloadTexture(ITEMS_PNG);
+	}
+
 }
