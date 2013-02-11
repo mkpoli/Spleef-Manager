@@ -21,7 +21,6 @@ public class CommandSetArea extends CommandBase{
 		// TODO Auto-generated method stub
 		var1.sendChatToPlayer("Please choose the first block by right click");
 		EntityPlayerMP plr =  getCommandSenderAsPlayer(var1);
-		plr.
 	}
 	public int getRequiredPermissionLevel()
 	{

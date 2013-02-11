@@ -2,9 +2,9 @@ package spleefmanager.proxy;
 
 import net.minecraftforge.client.MinecraftForgeClient;
 
-public class clientProxy extends Proxy {
+public class ClientProxy extends Proxy {
 
-	public clientProxy() {
+	public ClientProxy() {
 		// TODO Auto-generated constructor stub
 		MinecraftForgeClient.preloadTexture(ITEMS_PNG);
 	}

@@ -1,6 +1,6 @@
-package spleefmanager.Element.Item;
+package spleefmanager.element.item;
 
-import spleefmanager.spfManager;
+import spleefmanager.SpfManager;
 import spleefmanager.proxy.Proxy;
 import net.minecraft.block.Block;
 import net.minecraft.entity.player.EntityPlayer;
@@ -8,7 +8,7 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
-public class itemFloorRestorer extends Item {
+public class ItemFloorRestorer extends Item {
 
 	private static int x1;
 	private static int z1;
@@ -17,12 +17,12 @@ public class itemFloorRestorer extends Item {
 	private static int y1;
 	private static int y2;
 	public static boolean hasUsed=false;
-	public itemFloorRestorer(int par1) {
+	public ItemFloorRestorer(int par1) {
 		super(par1);
 		
 		 // Constructor Configuration
 		maxStackSize = 64;
-        setCreativeTab(spfManager.CT);
+        setCreativeTab(SpfManager.CT);
         setIconIndex(0);
         setItemName("itemfr");
 	}

@@ -9,8 +9,8 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.src.ModLoader;
 import net.minecraftforge.common.MinecraftForge;
-import spleefmanager.Element.Block.blockSpleef;
-import spleefmanager.Element.Item.itemFloorRestorer;
+import spleefmanager.element.block.BlockSpleef;
+import spleefmanager.element.item.ItemFloorRestorer;
 import spleefmanager.commands.CommandHelp;
 import spleefmanager.commands.CommandSetArea;
 import spleefmanager.commands.Commands;
@@ -35,14 +35,14 @@ import cpw.mods.fml.common.registry.LanguageRegistry;
 @NetworkMod(clientSideRequired=true,serverSideRequired=false)
 
 
-public  class spfManager {
-	public final static blockSpleef blocksb = new blockSpleef(538,66);
-	public final static Item itemfr = new itemFloorRestorer(12003);
+public  class SpfManager {
+	public final static BlockSpleef blocksb = new BlockSpleef(538,66);
+	public final static Item itemfr = new ItemFloorRestorer(12003);
 	public static CreativeTab CT = new CreativeTab("SpleefFloorAssist");
 
 	
 	@Instance("spfm")
-	public static spfManager spfm;
+	public static SpfManager spfm;
 	@SidedProxy(clientSide="spleefmanager.Proxy.clientProxy",serverSide="spleefmanager.Proxy.Proxy")
 	public static spleefmanager.proxy.Proxy Proxy;
 	@PreInit
@@ -76,7 +76,7 @@ public  class spfManager {
 	public static void PostInit(FMLPostInitializationEvent Init){
 //		ModLoader.addCommand(new CommandSetArea());
 	}
-	public spfManager() {
+	public SpfManager() {
 		// TODO Auto-generated constructor stub
 	}
 	   @ServerStarting

@@ -6,8 +6,8 @@ import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 
-import spleefmanager.spfManager;
-import spleefmanager.Element.Item.itemFloorRestorer;
+import spleefmanager.SpfManager;
+import spleefmanager.element.item.ItemFloorRestorer;
 
 public class CreativeTab extends CreativeTabs {
 
@@ -17,7 +17,7 @@ public class CreativeTab extends CreativeTabs {
 
 	@Override
 	public ItemStack getIconItemStack() {
-	    return new ItemStack(new itemFloorRestorer(12003));
+	    return new ItemStack(new ItemFloorRestorer(12003));
 	}
 	//
 }
