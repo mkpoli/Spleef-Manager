@@ -7,7 +7,7 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 
 import spleefmanager.SpfManager;
-import spleefmanager.element.item.ItemFloorRestorer;
+import spleefmanager.element.Item.ItemFloorRestorer;
 
 public class CreativeTab extends CreativeTabs {
 

@@ -1,4 +1,4 @@
-package spleefmanager.element.item;
+package spleefmanager.element.Item;
 
 import spleefmanager.SpfManager;
 import spleefmanager.proxy.Proxy;
@@ -10,14 +10,14 @@ import net.minecraft.world.World;
 
 public class ItemFloorRestorer extends Item {
 
-	private static int x1; //First Blocks'x
-	private static int y1;
-	private static int z1; 
-	private static int x2; //Second Blocks'x
-	private static int y2;
-	private static int z2;
+	public static int x1; //First Blocks'x
+	public static int y1;
+	public static int z1; 
+	public static int x2; //Second Blocks'x
+	public static int y2;
+	public static int z2;
 	public static boolean hasUsed = false; //bool hasUsed
-	
+	public static boolean setComplete = false;
 	public ItemFloorRestorer(int par1) {
 		super(par1);
 		
@@ -50,10 +50,12 @@ public class ItemFloorRestorer extends Item {
 	    	if (y1 == y2 ) {
 	    		//TODO:用NBT保存数据，在聊天窗口中询问生成的区域名称
 	    		//最终保存用Command实现？
-	    		SetSpleefBlock(world, x1, x2, z1, z2, y1,538);
+	    		//SetSpleefBlock(world, x1, x2, z1, z2, y1,538);
 	    		//以上或许可以用SetArea/RestoreArea命令中的方法替代
+	    		//SpfManager.areaInf.saveAreaInformation(par2, x1, x2, z1, z2, y1, currentTexture);
 	    		hasUsed=false; //复位
-	    		x1 = x2 = y1 = y2 = z1 = z2 = 0;
+	    		setComplete=true;
+	    		par2.sendChatToPlayer("Points setting completed . Please use /spfset name or /spfset name BlockID to set the Spleef Arena area.");
 	    		return true;
 	    	 } else {
 	    		par2.sendChatToPlayer("Exception : Two points aren't at the same height.");
@@ -66,44 +68,12 @@ public class ItemFloorRestorer extends Item {
 			y1 = y;
 			par2.sendChatToPlayer("First selection point chosen. (" + x1 + "," + y1 + "," + z1 + ")");
 			hasUsed = true;
+			setComplete=false;
 		} // end if
         return true;
     }
 
 	//Replacing Func
-	private boolean SetSpleefBlock(World world,int x1,int x2,int z1,int z2,int y,int blockID) {
-		int bx; 
-		int sx;
-		int bz;
-		int sz;
-		
-		//p>m
-		//p= 1 or 2 bigger one
-		//m = 1 or 2 smaller one
-		
-		bx = (x1>x2) ? x1 : x2;
-		sx = (x1>x2) ? x2 : x1; 
-		
-		bz = (z1 > z2) ? z1 : z2;
-		sz = z1 = (z1 > z2) ? z2 : z1;
 
-		for (int i = sx; i < bx; i++) {
-			for (int j = sz; j < bz; j++)
-				world.setBlock(i, y, j, blockID);
-		}
-		
-/*		for (int i = sx; i < bx; i++) {
-			for (int j = sz; j < bz; j++)
-				world.setBlock(i, y++, j, 0);
-		}
-		
-		for (int i = sx; i < bx; i++) {
-			for (int j = sz; j < bz; j++)
-				world.setBlock(i, y+2, j, 0);
-				
-		}
-																			*/
-		return true;
-	}
 	
 }

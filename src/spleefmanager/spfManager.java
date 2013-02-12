@@ -30,12 +30,13 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.src.ModLoader;
 import net.minecraftforge.common.MinecraftForge;
-import spleefmanager.element.block.BlockSpleef;
-import spleefmanager.element.item.ItemFloorRestorer;
+import spleefmanager.element.Block.BlockSpleef;
+import spleefmanager.element.Item.ItemFloorRestorer;
 import spleefmanager.commands.CommandDelArea;
 import spleefmanager.commands.CommandHelp;
 import spleefmanager.commands.CommandRestoreArea;
 import spleefmanager.commands.CommandSetArea;
+import spleefmanager.misc.AreaInformation;
 import spleefmanager.misc.CreativeTab;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.Init;
@@ -57,10 +58,10 @@ import cpw.mods.fml.common.registry.LanguageRegistry;
 
 public  class SpfManager {
 	public final static Block blocksb = new BlockSpleef(538,66); 
-	public final static Item itemfr = new ItemFloorRestorer(12003);
+	public final static ItemFloorRestorer itemfr = new ItemFloorRestorer(12003);
 	public static CreativeTab CT = new CreativeTab("SpleefFloorAssist");
 	public static NBTTagCompound nbt = new NBTTagCompound();
-	
+	public static AreaInformation areaInf=new AreaInformation();
 	@Instance("spfm")
 	public static SpfManager spfm;
 	
@@ -102,7 +103,7 @@ public  class SpfManager {
 	public SpfManager() {
 	}
 	
-	@ServerStarting
+	@ServerStarting //commands registration
 	public void serverStarting(FMLServerStartingEvent event) {
 	    CommandHandler commandManager = (CommandHandler)event.getServer().getCommandManager();
 	    commandManager.registerCommand(new CommandHelp());

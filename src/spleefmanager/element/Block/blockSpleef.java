@@ -1,4 +1,4 @@
-package spleefmanager.element.block;
+package spleefmanager.element.Block;
 
 import spleefmanager.SpfManager;
 import spleefmanager.proxy.Proxy;

@@ -23,13 +23,8 @@ public class CommandDelArea extends CommandBase {
 	public void processCommand(ICommandSender ics, String[] pars) {
 		if (pars.length == 1) {
 			String name = pars[5];
-	/*		SpfManager.nbt.setInteger(name + "x1" , 0 );
-			SpfManager.nbt.setInteger(name + "z1", z1);
-	 	SpfManager.nbt.setInteger(name + "x2", x2);
-			SpfManager.nbt.setInteger(name + "z2", z2);
-			SpfManager.nbt.setInteger(name + "y", y);
-																										*/
-		} else {
+			SpfManager.areaInf.deleteArea(name,ics);
+		} else if(pars.length == 0){
 			throw new WrongUsageException(usage, new Object[0]);
 		}
 		
