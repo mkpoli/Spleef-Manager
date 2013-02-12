@@ -38,21 +38,36 @@ public class AreaInformation {
 				ics.sendChatToPlayer("Area Existing , delete it first plz ... ");
 			return false;
 		}
+		if(areaCount >= 100){
+			ics.sendChatToPlayer("Can't store more areas,please delete some.");
+		}
 		areaCount++;
-		arr[areaCount]=new Area(x1,z1,x2,z2,y,BlockID,name);
+		arr[areaCount-1]=new Area(x1,z1,x2,z2,y,BlockID,name);
+		
 		SpfManager.nbt.setInteger(name + "x1", x1);
 		SpfManager.nbt.setInteger(name + "z1", z1);
 		SpfManager.nbt.setInteger(name + "x2", x2);
 		SpfManager.nbt.setInteger(name + "z2", z2);
 		SpfManager.nbt.setInteger(name + "y", y);
 		SpfManager.nbt.setInteger(name + "BlockID" , BlockID);
-	//	SpfManager.nbt.setString(name,name);
+		SpfManager.nbt.setString(name,name);
+		
 		ics.sendChatToPlayer("Sucessfully create the area <" + name + ">");
 		return true;
 	}
 	//Item uses this
 	public boolean saveAreaInformation(EntityPlayer par , int x1,int z1,int x2,int z2,int y,int BlockID,String name)
 	{
+		for(int i=0;i<areaCount;i++)
+		{
+			//detect name conflict
+			if(arr[i].sAreaName == name)
+				par.sendChatToPlayer("Area Existing , delete it first plz ... ");
+			return false;
+		}
+		if(areaCount >= 100){
+			par.sendChatToPlayer("Can't store more areas,please delete some.");
+		}
 		SpfManager.nbt.setInteger(name + "x1", x1);
 		SpfManager.nbt.setInteger(name + "z1", z1);
 		SpfManager.nbt.setInteger(name + "x2", x2);
@@ -94,13 +109,7 @@ public class AreaInformation {
 	}
 	
 	public boolean deleteArea(String name , ICommandSender par){
-		/*		
-		SpfManager.nbt.setInteger(name + "x1" , 0 );
-		SpfManager.nbt.setInteger(name + "z1", z1);
- 		SpfManager.nbt.setInteger(name + "x2", x2);
-		SpfManager.nbt.setInteger(name + "z2", z2);
-		SpfManager.nbt.setInteger(name + "y", y);
-		*/
+		//要加入清除中间Block的功能么?
 		for(int i=0;i<areaCount;i++)
 		{
 			if(arr[i].sAreaName == name){
