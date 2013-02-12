@@ -56,7 +56,7 @@ public class ItemFloorRestorer extends Item {
 	    	if (y1 == y2 ) {
 	    		hasUsed=false; //复位
 	    		setComplete=true;
-	    		par2.sendChatToPlayer("Points setting completed . Please use /spfset name or /spfset name BlockID to set the Spleef Arena area.");
+	    		par2.sendChatToPlayer("Points setting completed . Please use /spfset <name> or /spfset <name> <BlockID< to set the Spleef Arena area.");
 	    		return true;
 	    	 } else {
 	    		par2.sendChatToPlayer("Exception : Two points aren't at the same height.");

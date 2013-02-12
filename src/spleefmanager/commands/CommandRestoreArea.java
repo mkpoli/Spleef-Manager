@@ -14,30 +14,28 @@ public class CommandRestoreArea extends CommandBase {
 	
 	
 	public CommandRestoreArea() {
-		// TODO Auto-generated constructor stub
 	}
 	
 	@Override
-	public String getCommandName()
-	{
+	public String getCommandName() {
 		return "spfrestore";
 	}
 	
 	@Override
 	public void processCommand(ICommandSender ics, String[] pars) {
-		
 		if (pars.length == 1) {
 			String name = pars[0];
-			SpfManager.areaInf.restoreArea(ics, name);
-		} 
-		else {
+			if (!SpfManager.areaInf.restoreArea(ics, name)) {
+				ics.sendChatToPlayer("Area restoring failed.");
+				return;
+			}
+		} else {
 			throw new WrongUsageException(usage, new Object[0]);
 		}
 	}
 	
 	@Override
-    public String getCommandUsage(ICommandSender par1ICommandSender)
-    {
+    public String getCommandUsage(ICommandSender par1ICommandSender) {
         return usage;
     }
 }

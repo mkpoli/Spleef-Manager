@@ -24,8 +24,8 @@ public class CommandDelArea extends CommandBase {
 		if (pars.length == 1) {
 			String name = pars[5];
 			SpfManager.areaInf.deleteArea(name,ics);
-		} 
-		else if(pars.length == 0){
+		} else {
+			
 			throw new WrongUsageException(usage, new Object[0]);
 		}
 		
