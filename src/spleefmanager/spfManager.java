@@ -56,11 +56,13 @@ import cpw.mods.fml.common.registry.LanguageRegistry;
 @NetworkMod(clientSideRequired=true,serverSideRequired=false) //Mod Settings of Network
 
 public  class SpfManager {
+	//static variables
 	public final static Block blocksb = new BlockSpleef(538,66); 
 	public final static ItemFloorRestorer itemfr = new ItemFloorRestorer(12003);
 	public static CreativeTab CT = new CreativeTab("SpleefFloorAssist");
 	public static NBTTagCompound nbt = new NBTTagCompound();
 	public static AreaInformation areaInf=new AreaInformation();
+	
 	@Instance("spfm")
 	public static SpfManager spfm;
 	
@@ -110,4 +112,5 @@ public  class SpfManager {
 	    commandManager.registerCommand(new CommandRestoreArea());
 	    commandManager.registerCommand(new CommandSetArea());
 	}
+	
 }

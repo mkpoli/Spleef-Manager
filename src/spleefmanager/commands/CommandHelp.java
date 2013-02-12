@@ -16,6 +16,7 @@ public class CommandHelp extends CommandBase {
 
 	@Override
 	public void processCommand(ICommandSender var1, String[] var2) {
+		
 			var1.sendChatToPlayer("Command list of Spleef Manager Mod \n" +
 												"\n\n" +
 												"/spfhelp   Show the help \n" +
@@ -23,6 +24,7 @@ public class CommandHelp extends CommandBase {
 												"/spfrestore Restore the Seleceted Area \n" +
 												"/spfset Selcet Area"
 					);
+			
 	}
 
 }

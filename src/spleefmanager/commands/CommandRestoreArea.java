@@ -11,30 +11,30 @@ import net.minecraft.world.World;
 
 public class CommandRestoreArea extends CommandBase {
 	private String usage = "/spfrestore <name>";
+	
+	
 	public CommandRestoreArea() {
 		// TODO Auto-generated constructor stub
 	}
+	
 	@Override
 	public String getCommandName()
 	{
 		return "spfrestore";
 	}
+	
 	@Override
 	public void processCommand(ICommandSender ics, String[] pars) {
-		// TODO Auto-generated method stub
-		// TODO Add functions reading from world.
+		
 		if (pars.length == 1) {
 			String name = pars[0];
-			World world = getCommandSenderAsPlayer(ics).worldObj;
 			SpfManager.areaInf.restoreArea(ics, name);
-		} else {
+		} 
+		else {
 			throw new WrongUsageException(usage, new Object[0]);
 		}
-	
-	
-		/*	World world=getCommandSenderAsPlayer(var1).worldObj;
-		ReplaceBlock(world,x1,y1,x2,y2,z); */
 	}
+	
 	@Override
     public String getCommandUsage(ICommandSender par1ICommandSender)
     {

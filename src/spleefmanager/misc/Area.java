@@ -2,11 +2,13 @@ package spleefmanager.misc;
 
 //pure storage class
 public class Area {
-	int x1,y,z1,
-		x2,z2;
+	int x1,z1,
+		x2,z2,y;
 	int BlockID;
 	String sAreaName;
 	//World world;
+	
+	
 	public Area() {
 		// TODO Auto-generated constructor stub
 		x1=z1=x2=z2=y=0;

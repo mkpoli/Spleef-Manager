@@ -23,30 +23,47 @@ public class CommandSetArea extends CommandBase{
 		return "spfset";
 	}
 	
+	/* The command takes 7/6/2/1 argument(s).
+	 * 7 args: set manually. x1,z1,x2,z2,y,blockID,areaName
+	 * 6 args: set manually. x1,z1,x2,z2,y,areaName block set as SpleefBlock
+	 * 2 args: set with item FloorRestorer. areaName , blockID
+	 * 1 arg : set with item FLoorRestorer. areaName
+	 * @see net.minecraft.command.ICommand#processCommand(net.minecraft.command.ICommandSender, java.lang.String[])
+	 */
 	public void processCommand(ICommandSender ics, String[] pars) {
-/*		var1.sendChatToPlayer("Please choose the first block by right click"); */
+		
 		if (pars.length == 7) {
+			
 			int x1 = Integer.parseInt(pars[0]);
 			int z1 = Integer.parseInt(pars[1]);
 			int x2 = Integer.parseInt(pars[2]);
 			int z2 = Integer.parseInt(pars[3]);
 			int y = Integer.parseInt(pars[4]);
 			int BlockID=Integer.parseInt(pars[5]);
+			
 			String name = pars[6];
 			SpfManager.areaInf.saveAreaInformation(ics, x1, z1, x2, z2, y, BlockID , name);
+			ics.sendChatToPlayer("Area successfully created.");
+			SpfManager.areaInf.showAreaInformation(getCommandSenderAsPlayer(ics),name);
+			
 		} 
 		else if(pars.length==6){
+			
 			int x1 = Integer.parseInt(pars[0]);
 			int z1 = Integer.parseInt(pars[1]);
 			int x2 = Integer.parseInt(pars[2]);
 			int z2 = Integer.parseInt(pars[3]);
 			int y = Integer.parseInt(pars[4]);
 			int BlockID=SpfManager.blocksb.blockID;
+			
 			String name = pars[6];
 			SpfManager.areaInf.saveAreaInformation(ics, x1, z1, x2, z2, y, BlockID , name);
+			ics.sendChatToPlayer("Area successfully created.");
+			SpfManager.areaInf.showAreaInformation(getCommandSenderAsPlayer(ics),name);
+			
 		}
-		//1 para:name 2para:name and BlockID
 		else if(pars.length==1){
+			
 			if(ItemFloorRestorer.setComplete){
 				int x1=ItemFloorRestorer.x1;;
 				int z1=ItemFloorRestorer.x2;
@@ -55,14 +72,17 @@ public class CommandSetArea extends CommandBase{
 				int y=ItemFloorRestorer.y1;
 				int BlockID=SpfManager.blocksb.blockID;
 				String name=pars[0];
+				
 				SpfManager.areaInf.saveAreaInformation(ics, x1, z1, x2, z2, y, BlockID, name);
 				ItemFloorRestorer.setComplete=false;
 				ics.sendChatToPlayer("Area successfully created.");
 				SpfManager.areaInf.showAreaInformation(getCommandSenderAsPlayer(ics),name);
 			}
+			
 		}
 		else if(pars.length==2){
 			if(ItemFloorRestorer.setComplete){
+				
 				int x1=ItemFloorRestorer.x1;;
 				int z1=ItemFloorRestorer.x2;
 				int x2=ItemFloorRestorer.z1;
@@ -70,16 +90,19 @@ public class CommandSetArea extends CommandBase{
 				int y=ItemFloorRestorer.y1;
 				int BlockID=Integer.parseInt(pars[1]);
 				String name=pars[0];
+				
 				SpfManager.areaInf.saveAreaInformation(ics, x1, z1, x2, z2, y, BlockID, name);
 				ItemFloorRestorer.setComplete=false;
+				ics.sendChatToPlayer("Area successfully created.");
+				SpfManager.areaInf.showAreaInformation(getCommandSenderAsPlayer(ics),name);
+				
 			}
 		}
 		else throw new WrongUsageException(usage, new Object[0]);
-        
 	}
 	
 	public int getRequiredPermissionLevel() {
-		return 0;
+		return 2; //Admin & Server only
 	}
 	
 	@Override

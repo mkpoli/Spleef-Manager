@@ -16,12 +16,16 @@ public class ItemFloorRestorer extends Item {
 	public static int x2; //Second Blocks'x
 	public static int y2;
 	public static int z2;
-	public static boolean hasUsed = false; //bool hasUsed
+	
+	public static boolean hasUsed = false;
 	public static boolean setComplete = false;
+	
+	
+	//process funcs
+	
+	// Constructor Configuration
 	public ItemFloorRestorer(int par1) {
 		super(par1);
-		
-		 // Constructor Configuration
 		maxStackSize = 64;
         setCreativeTab(SpfManager.CT);
         setIconIndex(0);
@@ -43,16 +47,13 @@ public class ItemFloorRestorer extends Item {
 		if (world.isRemote) return true;
 		
 		if (hasUsed) {
+			
 			x2 = x;
 			z2 = z;
 			y2 = y;
 			par2.sendChatToPlayer("Second selection point chosen. (" + x2 + "," + y2 + "," + z2 + ")");	
+			
 	    	if (y1 == y2 ) {
-	    		//TODO:用NBT保存数据，在聊天窗口中询问生成的区域名称
-	    		//最终保存用Command实现？
-	    		//SetSpleefBlock(world, x1, x2, z1, z2, y1,538);
-	    		//以上或许可以用SetArea/RestoreArea命令中的方法替代
-	    		//SpfManager.areaInf.saveAreaInformation(par2, x1, x2, z1, z2, y1, currentTexture);
 	    		hasUsed=false; //复位
 	    		setComplete=true;
 	    		par2.sendChatToPlayer("Points setting completed . Please use /spfset name or /spfset name BlockID to set the Spleef Arena area.");
@@ -62,18 +63,18 @@ public class ItemFloorRestorer extends Item {
 	    		hasUsed = false;
 	    		return true;
 	    	 } // end if
+	    	
  		} else {
+ 			
 			x1 = x;
 			z1 = z;
 			y1 = y;
 			par2.sendChatToPlayer("First selection point chosen. (" + x1 + "," + y1 + "," + z1 + ")");
 			hasUsed = true;
 			setComplete=false;
+			
 		} // end if
         return true;
     }
 
-	//Replacing Func
-
-	
 }
