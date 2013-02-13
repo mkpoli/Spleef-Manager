@@ -22,8 +22,14 @@ public class CommandDelArea extends CommandBase {
 	@Override
 	public void processCommand(ICommandSender ics, String[] pars) {
 		if (pars.length == 1) {
-			String name = pars[5];
-			SpfManager.areaInf.deleteArea(name,ics);
+			String name = pars[0]; //低级错误啊有木有> >
+			
+			if( SpfManager.areaInf.deleteArea(name) ){
+				ics.sendChatToPlayer("Area has  been removed.");
+			} else {
+				ics.sendChatToPlayer("Fatal Error : Area has not been rmoved.");
+			}
+			
 		} else {
 			
 			throw new WrongUsageException(usage, new Object[0]);

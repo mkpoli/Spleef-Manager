@@ -8,7 +8,7 @@ import net.minecraft.world.World;
 public class Generic {
 	public static void sendPublicNotice(World world, String string) {
 		if (!world.isRemote) {
-			MinecraftServer.getServer().getConfigurationManager().sendChatMsg(string);
+			//MinecraftServer.getServer().getConfigurationManager().sendChatMsg(string);
 		}
 	}
 
@@ -26,7 +26,7 @@ public class Generic {
 				} // end for
 			} else {
 				for (int i = 0; i <= string.length; i++) {
-					MinecraftServer.getServer().getConfigurationManager().sendChatMsg(string[i]);
+					//MinecraftServer.getServer().getConfigurationManager().sendChatMsg(string[i]);
 				} // end for
 			} // end if
 		} // end if

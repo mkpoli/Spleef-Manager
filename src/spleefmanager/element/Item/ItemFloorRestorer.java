@@ -50,13 +50,13 @@ public class ItemFloorRestorer extends Item {
 			
 			x2 = x;
 			z2 = z;
-			y2 = y;
+			y2 = y; 
 			par2.sendChatToPlayer("Second selection point chosen. (" + x2 + "," + y2 + "," + z2 + ")");	
 			
 	    	if (y1 == y2 ) {
 	    		hasUsed=false; //复位
 	    		setComplete=true;
-	    		par2.sendChatToPlayer("Points setting completed . Please use /spfset <name> or /spfset <name> <BlockID< to set the Spleef Arena area.");
+	    		par2.sendChatToPlayer("Points setting completed . Please use /spfset <name> or /spfset <name> <BlockID> to set the Spleef Arena area.");
 	    		return true;
 	    	 } else {
 	    		par2.sendChatToPlayer("Exception : Two points aren't at the same height.");

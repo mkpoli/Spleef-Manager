@@ -50,7 +50,7 @@ public class CommandSetArea extends CommandBase{
 				return;
 			}
 			ics.sendChatToPlayer("Area successfully created.");
-			SpfManager.areaInf.showAreaInformation(getCommandSenderAsPlayer(ics),name, BlockID);
+			SpfManager.areaInf.showAreaInformation(getCommandSenderAsPlayer(ics),name);
 			
 		}  else if(pars.length==6) {
 			
@@ -86,15 +86,15 @@ public class CommandSetArea extends CommandBase{
 				}
 				ItemFloorRestorer.setComplete=false;
 				ics.sendChatToPlayer("Area successfully created.");
-				SpfManager.areaInf.showAreaInformation(getCommandSenderAsPlayer(ics),name,BlockID);
+				SpfManager.areaInf.showAreaInformation(getCommandSenderAsPlayer(ics),name);
 			} else {
 				ics.sendChatToPlayer("You haven't selected the positions by Floor Restorer");
 			}
 		} else if(pars.length==1) {
 			if(ItemFloorRestorer.setComplete){
 				int x1=ItemFloorRestorer.x1;;
-				int z1=ItemFloorRestorer.x2;
-				int x2=ItemFloorRestorer.z1;
+				int z1=ItemFloorRestorer.z1;
+				int x2=ItemFloorRestorer.x2;
 				int z2=ItemFloorRestorer.z2;
 				int y=ItemFloorRestorer.y1;
 				int BlockID=SpfManager.blocksb.blockID;

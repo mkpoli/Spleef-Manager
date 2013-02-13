@@ -15,16 +15,14 @@ import spleefmanager.misc.Generic;
 
 
 public class AreaInformation {
-	/*
-	 * �˴���ʱʹ������
-	 * ���ܸ���ģ��
-	 * ��ʱ�����鷽ʽ�����������
-	 */
-//	private static Area[] arr;
-//	private static int areaCount=0;
+
+	
+	//	private static Area[] arr;
+	//	private static int areaCount=0;
 	private String[] stringInfo = {"-----------------Area Information-------------", null, null, null , null ,"----------------------------------------------"};
 	private Area area;
-	//���캯��
+	
+	//Load Function
 	public AreaInformation() {
 	}
 
@@ -63,7 +61,7 @@ public class AreaInformation {
 			ics.sendChatToPlayer("The area you given is existing, delete it first plz.");
 			return false;
 		}
-/*	可能被处理掉，暂不考虑
+/*	鍙兘琚鐞嗘帀锛屾殏涓嶈�铏�
 	if (areaCount >= 100){
 			ics.sendChatToPlayer("Can't store more areas,please delete some.");
 		}
@@ -113,15 +111,14 @@ public class AreaInformation {
 
 	public boolean restoreArea(ICommandSender ics,String name) {
 		if (isExistingArea(name)) {
-			ics.sendChatToPlayer("Exist!");
 			Area area = readAreaInformationFromFile(name);
-			ics.sendChatToPlayer("area seted");
+			ics.sendChatToPlayer("Area has been set."); //That's a decent English skill...
 			SetSpleefBlock(CommandBase.getCommandSenderAsPlayer(ics).worldObj,
 					area.x1, area.z1, area.x2, area.z2, area.y, area.BlockID);
-			ics.sendChatToPlayer("SetSpleefBlocked");
+			ics.sendChatToPlayer("The area has been restored with the selected block.");
 			return true; 
 		} else {
-			ics.sendChatToPlayer("not Exist!");
+			ics.sendChatToPlayer("Area not exist!");
 /*			
 		for(int i=0;i<areaCount;i++){
 			if(name == area.sAreaName){	
@@ -153,7 +150,7 @@ public class AreaInformation {
 		return;
 	}
 	
-/*	//Ҫ��������м�Block�Ĺ���ô?
+/*	//要锟斤拷锟斤拷锟斤拷锟斤拷屑锟紹lock锟侥癸拷锟斤拷么?
 	public boolean deleteArea(String name , ICommandSender par){
 		for(int i=0;i<areaCount;i++)
 		{
@@ -168,9 +165,10 @@ public class AreaInformation {
 	}
 	*/
 	
-	public boolean deleteArea(String name , ICommandSender par){
-//		SpfManager.nbt.removeTag(name);
-		return false;
+	public boolean deleteArea(String name){
+		SpfManager.nbt.removeTag(name);
+		if (isExistingArea(name))return false;
+		else return true;
 	}
 	
 	public void showAreaInformation(EntityPlayer par,String name) {
@@ -179,11 +177,11 @@ public class AreaInformation {
 			stringInfo[1] = "Area Name : " + name;
 			stringInfo[2] = "Area range : " + area.x1 + " " + area.z1;
 			stringInfo[3] = "      To   : " + area.x2 + " " + area.z2;
-			stringInfo[4] = "Filled Block : " + new  ItemStack(SpfManager.blocksb).getItemName();
+			stringInfo[4] = "Filled Block : " + area.BlockID;
 			Generic.sendMultiLinesChat(true, par, stringInfo);
 			return;
 		}
-			return;
+		return;
 /*		for(int i=0;i<areaCount;i++){
 			if(area.sAreaName == name){
 				par.sendChatToPlayer("-----------------Area Information-------------");
@@ -201,7 +199,8 @@ public class AreaInformation {
 		*/
 	}
 	
-	public void showAreaInformation(EntityPlayer par,String name,int BlockID) {
+/*	不解  为什么需要这个原型呢...
+ * 	public void showAreaInformation(EntityPlayer par,String name,int BlockID) {
 		if (isExistingArea(name)) {
 			readAreaInformationFromFile(name);
 			stringInfo[1] = "Area Name : " + name;
@@ -212,35 +211,9 @@ public class AreaInformation {
 			return;
 		}
 			return;
-/*		for(int i=0;i<areaCount;i++){
-			if(area.sAreaName == name){
-				par.sendChatToPlayer("-----------------Area Information-------------");
-				par.sendChatToPlayer("Area Name : " + name);
-				par.sendChatToPlayer("Area range : " + area.x1 + " " + area.z1);
-				par.sendChatToPlayer("      To   : " + area.x2 + " " + area.z2);
-				par.sendChatToPlayer("Filled Block : " + new ItemStack(BlockID, 0, 0).getItemName());				
-				par.sendChatToPlayer("----------------------------------------------");
-				
-				return
-				};
-		par.sendChatToPlayer("No required area found.");
-		return;
-		*/
 	}
+*/	
 	
-	
-/*	public void showAreaInformation(EntityPlayer par){
-		
-		for(int i=0;i<areaCount;i++){
-			par.sendChatToPlayer("-----------------Area Information-------------");
-			par.sendChatToPlayer("Area Name : " + area.sAreaName);
-			par.sendChatToPlayer("Area range : " + area.x1 + " " + area.z1);
-			par.sendChatToPlayer("      To   : " + area.x2 + " " + area.z2);
-			par.sendChatToPlayer("Filled Block : " + new  ItemStack(SpfManager.blocksb).getItemName() );				
-			par.sendChatToPlayer("----------------------------------------------");
-		}
-	}
-	*/
 	
 	/**
 	 * Determines the given string(Area Name) is existing or not.
@@ -251,14 +224,9 @@ public class AreaInformation {
 	 * @return false
 	 * It isn't existing.
 	 */
+	
 	private boolean isExistingArea(String name) {
-	/*	try {
-			SpfManager.nbt.getString(name);
-			return true;
-		} catch (Exception e) {
-			return false;
-		}
-	}	*/
+
 		if(SpfManager.nbt.hasKey(name)) {
 			return true;
 
@@ -267,13 +235,5 @@ public class AreaInformation {
 		}
 		
 		
-/*		
-		if (SpfManager.nbt.getString(name) == "") {
-			return false;
-		} else {
-			return true;
-		}
-		
-		*/
 	}	
 }
