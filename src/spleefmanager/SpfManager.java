@@ -89,7 +89,9 @@ public  class SpfManager {
     	LanguageRegistry.addName(itemfr, "Floor Restorer");
     	LanguageRegistry.instance().addStringLocalization("itemGroup.SpleefFloorAssist", "en_US", "Spleef Floor Assist");
     	//Crafting
-    	GameRegistry.addRecipe(new ItemStack(itemfr),"AA "," BB ","  C",
+    	GameRegistry.addRecipe(new ItemStack(itemfr),"AA ",
+    												 "BB ",
+    												 " C ",
     			'A',bonemealStack,'B',diamondStack,'C',stickStack);
     	GameRegistry.addRecipe(new ItemStack(blocksb),"A",'A',dirtStack);
     		

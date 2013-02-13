@@ -26,10 +26,11 @@ public class ItemFloorRestorer extends Item {
 	// Constructor Configuration
 	public ItemFloorRestorer(int par1) {
 		super(par1);
-		maxStackSize = 64;
+		maxStackSize = 1;
         setCreativeTab(SpfManager.CT);
         setIconIndex(0);
         setItemName("itemfr");
+        setMaxStackSize(maxStackSize);
 	}
 
 	@Override
